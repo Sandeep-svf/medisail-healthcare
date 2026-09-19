@@ -1,0 +1,74 @@
+/*** 
+
+====================================================================
+  Main Slider
+====================================================================
+
+***/
+
+.main-slider {
+  position: relative;
+}
+
+.main-slider {
+  h1{
+    position: relative;
+    display: block;
+    font-size: 90px;
+    line-height: 1em;
+    color: #ffffff;
+    font-weight: 700;
+  }
+  .text{
+    font-size: 18px;
+    line-height: 36px;
+    color: rgba(255,255,255,.50);
+  }
+  .btn-box {
+    position: relative;
+  }
+  .theme-btn {
+    display: inline-block;
+    white-space: nowrap;
+    min-width: 200px !important;
+  }
+}
+
+
+.tp-dottedoverlay {
+  background-image: url(../images/main-slider/bg-pattern-2-dark.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  opacity: .5;
+}
+
+.tp-bannertimer {
+  display: none;
+}
+
+.main-slider .tparrows {
+    background-color: rgb(255, 255, 255, .2);
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50px;
+    transition: all 500ms ease;
+    &:before {
+      line-height: 50px;
+    }
+}
+
+.main-slider {
+  .tp-leftarrow {
+    left: 50px !important;
+  }
+  .tp-rightarrow {
+    left: auto!important;
+    right: 25px !important;
+  }
+}
+
+

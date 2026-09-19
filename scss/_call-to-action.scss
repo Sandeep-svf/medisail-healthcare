@@ -1,0 +1,134 @@
+/*** 
+
+====================================================================
+        Call To Action
+====================================================================
+
+***/
+
+.call-to-action{
+    position: relative;
+    padding: 140px 0 120px;
+    @include background;
+    z-index: 2;
+    &:before{
+        @include overlay;
+        background-color: var(--bg-theme-color1);
+        opacity: .5;
+        content: "";
+        pointer-events: none;
+    }
+    &:after{
+        position: absolute;
+        left: 30px;
+        top: 30px;
+        right: 30px;
+        bottom: 30px;
+        border: 1px solid #fff;
+        opacity: .1;
+        pointer-events: none;
+        content: "";
+    }
+    .title-box {
+        position: relative;
+        text-align: center;
+        .title{
+            font-size: 60px;
+            line-height: 1.2em;
+            color: #fff;
+            margin-bottom: 0;
+        }
+        .theme-btn {
+            margin-top: 45px;
+        }
+    }
+    &.alternate::before{
+        background-color: #090909;
+        opacity: .80;
+    }
+}
+/*** 
+
+====================================================================
+        Call To Action Three
+====================================================================
+
+***/
+
+.call-to-action-three{
+    padding: 90px 0 40px;
+    position: relative;
+    z-index: 2;
+    .bg-shape{
+        background-image: url(../images/icons/shape-11.png);
+        background-position: center right;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 62.9%;
+        @include media-breakpoint-down(xl){
+            width: 80%;
+        }
+        @include media-breakpoint-down(lg){
+            display: none;
+        }
+    }
+    .bg-image{
+        background-repeat: no-repeat;
+        background-position: center right;
+        background-size: cover;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 61.1%;
+        &:before{
+            background-color: var(--theme-color2);
+            content: "";
+            @include overlay;
+            opacity: .7;
+        }
+        @include media-breakpoint-down(lg) {
+            width: 100%;
+        }
+    }
+
+    .sec-title{
+        margin-bottom: 40px;
+        h2{
+            font-size: 40px;
+            @include media-breakpoint-down(md){
+                font-size: 34px;
+                br{
+                    display: none;
+                }
+            }
+        }
+    }
+    
+    .title-column{
+        .inner-column{
+            padding-right: 40px;
+            @include media-breakpoint-down(lg){
+                padding: 0;
+                text-align: center;
+            }
+        }
+    }
+
+    .btn-column{
+        margin-bottom: 40px;
+        .inner-column{
+            text-align: right;
+            padding-top: 20px;
+            @include media-breakpoint-down(lg){
+                text-align: center;
+                padding-top: 0;
+            }
+        }
+    }
+
+}

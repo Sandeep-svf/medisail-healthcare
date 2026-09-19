@@ -1,0 +1,295 @@
+
+/*** 
+
+====================================================================
+    Why Choose Us One
+====================================================================
+
+***/
+
+.why-choose-us-one{
+    overflow: hidden;
+    padding: 120px 0 70px;
+    position: relative;
+    &:before{
+        background-image: url(../images/background/about1-bg.jpg);
+        background-position: center center;
+        background-repeat: no-repeat;
+        content: "";
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+    .content-column {
+        margin-bottom: 50px;
+        position: relative;
+        z-index: 1;
+        .inner-column {
+            padding-right: 70px;
+            position: relative;
+            @include for-lg{
+                padding-right: 0;
+            }
+        }
+        .sec-title{
+            margin-bottom: 40px;
+        }
+        .feature-box{
+            margin-bottom: 30px;
+            min-height: 70px;
+            padding-left: 100px;
+            padding-top: 5px;
+            position: relative;
+            &:hover{
+                .icon{
+                    color: var(--theme-color1);
+                    transform: rotateY(180deg);
+                    &:after{
+                        background-color: #ebebeb;
+                    }
+                }
+            }
+            .icon{
+                color: var(--theme-color1);
+                font-size: 64px;
+                left: 0;
+                line-height: 1em;
+                position: absolute;
+                top: 0;
+                transition: all 300ms ease;
+                &:after{
+                    background-color: var(--theme-color2);
+                    border-radius: 50%;
+                    content: "";
+                    left: 25px;
+                    height: 54px;
+                    opacity: 0.1;
+                    position: absolute;
+                    top: 15px;
+                    transition: all 300ms ease;
+                    width: 54px;
+                    z-index: -2;
+                }
+            }
+        }
+
+        .theme-btn{
+            margin-top: 20px;
+        }
+    }
+
+    .image-column {
+        margin-bottom: 50px;
+        position: relative;
+        @include for-lg{
+            display: none;
+        }
+        .image-box{
+            margin-left: -24px;
+            position: relative;
+        }    
+        .image{
+            background-color: var(--bg-theme-color1);
+            display: block;
+            margin-bottom: 0;
+            position: relative;
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    .info-column{
+        @include for-lg{
+            width: 100%;
+        }
+        .inner-column{
+            padding-left: 36px;
+            position: relative;
+            @include for-lg{
+                padding-left: 0;
+            }
+        }
+        .info{
+            border-bottom: 5px solid var(--bg-theme-color2);
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            position: relative;
+            &:last-child{
+                border-bottom: 0;
+                margin-bottom: 0;
+                padding-bottom: 0;
+            }
+            .title{
+                margin-bottom: 5px;
+                position: relative;
+                top: -5px;
+                @include for-md{
+                    br{
+                        display: none;
+                    }
+                }
+            }
+        }
+        .info-box{
+            background-color: var(--theme-color1);
+            margin-left: -60px;
+            margin-right: 70px;
+            margin-top: 30px;
+            padding: 30px 50px;
+            position: relative;
+            @include for-lg{
+                margin-left: 0;
+                margin-right: 0;
+            }
+            @include for-md{
+                padding: 20px 30px;
+            }
+            .icon{
+                color: var(--theme-color-light);
+                display: inline-block;
+                font-size: 28px;
+                margin-bottom: 8px;
+                @include transition(all 300ms ease);
+            }
+            .title{
+                color: var(--theme-color-light);
+                margin-bottom: 0;
+                @include for-md{
+                    br{
+                        display: none;
+                    }
+                }
+            }
+            &:hover{
+                .icon{
+                    transform: rotateY(180deg);
+                }
+            }
+        }
+    }
+}
+
+
+/*** 
+
+====================================================================
+    Why Choose Us Two
+====================================================================
+
+***/
+
+.why-choose-us-two{
+    position: relative;
+    padding: 120px 0 70px;
+    &:before {
+        position: absolute;
+        left: -240px;
+        top: -160px;
+        height: 100%;
+        width: 100%;
+        background-image: url(../images/icons/pattern-7.png);
+        background-repeat: no-repeat;
+        background-position: center left;
+        content: "";
+    }
+    &:after {
+        background: #cc3de3;
+        border-radius: 50%;
+        content: "";
+        filter: blur(75px);
+        height: 530px;
+        left: -127px;
+        opacity: 0.05;
+        position: absolute;
+        top: 90px;
+        width: 530px;
+        z-index: -1;
+    }
+
+    .content-column {
+        position: relative;
+        margin-bottom: 50px;
+        .inner-column {
+            position: relative;
+        }
+        .info-box{
+            position: relative;
+            background-color: #f4f5f8;
+            padding: 15px 30px;
+            padding-left: 60px;
+            margin-bottom: 30px;
+            transition: all 300ms ease;
+            &:hover{
+                box-shadow: 0 10px 30px rgba(0,0,0, .10);
+
+            }
+            .icon{
+                position: absolute;
+                left: 30px;
+                top: 0;
+                height: 60px;
+                line-height: 60px;
+                color: var(--theme-color1);
+            }
+            .title{
+                transition: all 300ms ease;
+                margin-bottom: 0;
+            }
+        }
+        .skills{
+            margin-top: 20px;
+            margin-bottom: 0;
+            .skill-item{
+                margin-bottom: 10px;
+                &:last-child{
+                    margin-bottom: 0;
+                }
+            }
+            .bar-inner .bar{
+                background-color: var(--bg-theme-color1);
+            }
+        }
+    }
+
+    .image-column {
+        position: relative;
+        margin-bottom: 50px;
+        .image-box {
+            position: relative;
+            padding-left: 100px;
+            margin-right: -360px;
+            @include for-lg{
+                padding-left: 0;
+            }
+            @include for-md{
+                margin-right: 0;
+            }
+            .image {
+                position: relative;
+                margin-bottom: 0;
+                img{
+                    width: 100%;
+                }
+            }
+            .play-btn{
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                height: 150px;
+                width: 160px;
+                background-color: var(--bg-theme-color1);
+                @include flex-center;
+                color: var(--theme-color-white);
+                font-size: 28px;
+                transition: all 300ms ease;
+                &:hover{
+                    background-color: var(--bg-theme-color2);
+                    color: var(--theme-color-white);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,1018 @@
+/* ==========================================================================
+   Creative Mouse, Interactive Spotlight, Live Dock & Developer Signature
+   Medisail Healthcare Services Pvt. Ltd. | Architecture by Sandeep Maurya
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Top Precision Reading & Scroll Progress Bar
+   -------------------------------------------------------------------------- */
+#creative-scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3.5px;
+  background: linear-gradient(90deg, #164082, #28a745, #00d2ff);
+  box-shadow: 0 0 12px rgba(40, 167, 69, 0.8), 0 0 4px rgba(0, 210, 255, 0.9);
+  z-index: 10000040;
+  pointer-events: none;
+  transition: width 0.08s ease-out;
+}
+
+#creative-scroll-progress::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -2px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 10px #00d2ff, 0 0 16px #28a745;
+}
+
+/* --------------------------------------------------------------------------
+   Interactive Creative Mouse & Morphing Action Cursor
+   (Highest Z-Index on page so it floats over all modals and popups)
+   -------------------------------------------------------------------------- */
+@media (hover: hover) and (pointer: fine) {
+  body.has-creative-cursor,
+  body.has-creative-cursor a,
+  body.has-creative-cursor button,
+  body.has-creative-cursor .theme-btn,
+  body.has-creative-cursor .btn,
+  body.has-creative-cursor [role="button"],
+  body.has-creative-cursor .read-more,
+  body.has-creative-cursor .dev-signature-chip,
+  body.has-creative-cursor .dev-signature-overlay,
+  body.has-creative-cursor .dev-signature-card,
+  body.has-creative-cursor .dev-cta-btn,
+  body.has-creative-cursor .dev-card-close-btn {
+    cursor: none !important;
+  }
+
+  /* Precision Center Dot */
+  .creative-cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background: #28a745;
+    border-radius: 50%;
+    pointer-events: none !important;
+    z-index: 2147483647 !important;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px rgba(40, 167, 69, 0.9), 0 0 20px rgba(40, 167, 69, 0.5);
+    transition: opacity 0.2s ease, transform 0.15s cubic-bezier(0.2, 0, 0.2, 1), background-color 0.2s ease;
+    will-change: transform, left, top;
+  }
+
+  /* Fluid Trailing Aura Ring */
+  .creative-cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 36px;
+    height: 36px;
+    border: 1.5px solid rgba(40, 167, 69, 0.7);
+    border-radius: 50%;
+    pointer-events: none !important;
+    z-index: 2147483646 !important;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 0.24s cubic-bezier(0.25, 1, 0.5, 1),
+                height 0.24s cubic-bezier(0.25, 1, 0.5, 1),
+                border-radius 0.24s ease,
+                background-color 0.24s ease,
+                border-color 0.24s ease,
+                border-width 0.24s ease,
+                box-shadow 0.24s ease,
+                opacity 0.2s ease;
+    box-shadow: 0 0 15px rgba(40, 167, 69, 0.25);
+    will-change: transform, left, top, width, height;
+  }
+
+  /* Dynamic Micro Typography Label inside Cursor */
+  .creative-cursor-label {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none !important;
+    z-index: 2147483647 !important;
+    transform: translate(-50%, -50%);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 8.5px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #ffffff;
+    opacity: 0;
+    transform-origin: center center;
+    transition: opacity 0.18s cubic-bezier(0.2, 0, 0.2, 1), transform 0.18s cubic-bezier(0.2, 0, 0.2, 1);
+    white-space: nowrap;
+    user-select: none;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85);
+    will-change: transform, left, top;
+  }
+
+  .creative-cursor-label.label-visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  /* Morphing Cursor Modes */
+  .creative-cursor-ring.cursor-hover {
+    width: 62px;
+    height: 62px;
+    background: rgba(40, 167, 69, 0.16);
+    border-color: #28a745;
+    border-width: 2px;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    box-shadow: 0 0 28px rgba(40, 167, 69, 0.5);
+  }
+
+  .creative-cursor-ring.cursor-pill {
+    width: 78px;
+    height: 36px;
+    border-radius: 18px;
+    background: rgba(22, 64, 130, 0.25);
+    border-color: #164082;
+    border-width: 2px;
+    box-shadow: 0 0 24px rgba(22, 64, 130, 0.5);
+  }
+
+  .creative-cursor-ring.cursor-pill-whatsapp {
+    width: 82px;
+    height: 36px;
+    border-radius: 18px;
+    background: rgba(37, 211, 102, 0.28);
+    border-color: #25D366;
+    border-width: 2px;
+    box-shadow: 0 0 26px rgba(37, 211, 102, 0.6);
+  }
+
+  .creative-cursor-ring.cursor-pill-book {
+    width: 82px;
+    height: 36px;
+    border-radius: 18px;
+    background: rgba(40, 167, 69, 0.28);
+    border-color: #28a745;
+    border-width: 2px;
+    box-shadow: 0 0 26px rgba(40, 167, 69, 0.6);
+  }
+
+  .creative-cursor-ring.cursor-pill-call {
+    width: 76px;
+    height: 36px;
+    border-radius: 18px;
+    background: rgba(22, 64, 130, 0.4);
+    border-color: #164082;
+    border-width: 2px;
+    box-shadow: 0 0 24px rgba(22, 64, 130, 0.6);
+  }
+
+  .creative-cursor-ring.cursor-pill-view {
+    width: 78px;
+    height: 36px;
+    border-radius: 18px;
+    background: rgba(0, 210, 255, 0.28);
+    border-color: #00d2ff;
+    border-width: 2px;
+    box-shadow: 0 0 26px rgba(0, 210, 255, 0.55);
+  }
+
+  .creative-cursor-ring.cursor-pill-close {
+    width: 78px;
+    height: 36px;
+    border-radius: 18px;
+    background: rgba(255, 95, 86, 0.28);
+    border-color: #ff5f56;
+    border-width: 2px;
+    box-shadow: 0 0 26px rgba(255, 95, 86, 0.6);
+  }
+
+  .creative-cursor-ring.cursor-pill-dev {
+    width: 86px;
+    height: 36px;
+    border-radius: 18px;
+    background: rgba(135, 192, 61, 0.3);
+    border-color: #87C03D;
+    border-width: 2px;
+    box-shadow: 0 0 26px rgba(135, 192, 61, 0.6);
+  }
+
+  .creative-cursor-dot.cursor-hover {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0.35;
+  }
+
+  /* Sonar Wave on Click */
+  .creative-sonar-pulse {
+    position: fixed;
+    border: 2px solid #28a745;
+    border-radius: 50%;
+    pointer-events: none !important;
+    z-index: 2147483644 !important;
+    transform: translate(-50%, -50%);
+    animation: creativeSonarAnimation 0.55s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+  }
+
+  @keyframes creativeSonarAnimation {
+    0% {
+      width: 8px;
+      height: 8px;
+      opacity: 0.95;
+      border-color: #00d2ff;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+      border-color: #28a745;
+      opacity: 0.7;
+    }
+    100% {
+      width: 68px;
+      height: 68px;
+      opacity: 0;
+      border-color: #87C03D;
+      transform: translate(-50%, -50%) scale(1.6);
+    }
+  }
+
+  /* Full-Screen Floating Particle Canvas */
+  #creative-particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none !important;
+    z-index: 2147483645 !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     Card Ambient Spotlight Radial Lighting (Apple / Stripe / Linear Design)
+     -------------------------------------------------------------------------- */
+  .service-block .inner-box,
+  .news-block .inner-box,
+  .team-block-two .inner-box,
+  .testimonial-block .inner-box,
+  .feature-block .inner-box,
+  .process-block .inner-box {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                box-shadow 0.28s ease,
+                border-color 0.28s ease;
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+
+  .service-block .inner-box::after,
+  .news-block .inner-box::after,
+  .team-block-two .inner-box::after,
+  .testimonial-block .inner-box::after,
+  .feature-block .inner-box::after,
+  .process-block .inner-box::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      420px circle at var(--spotlight-x, -300px) var(--spotlight-y, -300px),
+      rgba(40, 167, 69, 0.12),
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .service-block .inner-box:hover::after,
+  .news-block .inner-box:hover::after,
+  .team-block-two .inner-box:hover::after,
+  .testimonial-block .inner-box:hover::after,
+  .feature-block .inner-box:hover::after,
+  .process-block .inner-box:hover::after {
+    opacity: 1;
+  }
+
+  /* Magnetic Button Physics Transition */
+  .theme-btn,
+  .btn-style-one,
+  .header-top .top-right a,
+  .scroll-to-top,
+  .dev-cta-btn,
+  .dev-signature-chip {
+    will-change: transform;
+    transition: transform 0.18s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.25s ease;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Floating Live Clinical Readiness Dock (Enterprise Healthcare Presence)
+   -------------------------------------------------------------------------- */
+.medisail-live-dock {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: rgba(14, 16, 42, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(40, 167, 69, 0.4);
+  border-radius: 50px;
+  padding: 8px 16px 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 999990;
+  box-shadow: 0 10px 30px rgba(14, 16, 42, 0.45), 0 0 20px rgba(40, 167, 69, 0.2);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
+}
+
+.medisail-live-dock:hover {
+  border-color: #28a745;
+  box-shadow: 0 12px 35px rgba(14, 16, 42, 0.55), 0 0 25px rgba(40, 167, 69, 0.35);
+}
+
+.medisail-dock-beacon {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #28a745;
+  box-shadow: 0 0 10px #28a745;
+  flex-shrink: 0;
+}
+
+.medisail-dock-beacon::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1.5px solid #28a745;
+  animation: medicalPulseRing 1.8s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+
+@keyframes medicalPulseRing {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.medisail-dock-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.medisail-dock-title {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  color: #87C03D;
+  text-transform: uppercase;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.medisail-dock-desc {
+  font-size: 10px;
+  font-weight: 600;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  letter-spacing: 0.2px;
+}
+
+.medisail-dock-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 4px;
+}
+
+.medisail-dock-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 13px;
+  color: #ffffff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.medisail-dock-btn.whatsapp {
+  background: #25D366;
+  box-shadow: 0 2px 8px rgba(37, 211, 102, 0.4);
+}
+
+.medisail-dock-btn.phone {
+  background: #164082;
+  box-shadow: 0 2px 8px rgba(22, 64, 130, 0.5);
+}
+
+.medisail-dock-btn:hover {
+  transform: scale(1.15);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   DEVELOPER SIGNATURE - DISCREET TRIGGER CHIP & HOLOGRAPHIC SHOWCASE CARD
+   Sandeep Maurya | Full-Stack Architect & Cloud Systems Engineer
+   ========================================================================== */
+
+/* Discreet Floating Trigger Chip at Bottom-Left */
+.dev-signature-chip {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  background: rgba(14, 16, 42, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(135, 192, 61, 0.35);
+  border-radius: 30px;
+  padding: 6px 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 11.5px;
+  text-decoration: none;
+  z-index: 999988;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35), 0 0 12px rgba(40, 167, 69, 0.15);
+  transition: all 0.28s cubic-bezier(0.25, 1, 0.5, 1);
+  user-select: none;
+}
+
+.dev-signature-chip:hover {
+  background: rgba(14, 16, 42, 0.98);
+  border-color: #28a745;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45), 0 0 20px rgba(40, 167, 69, 0.4);
+}
+
+.dev-chip-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(40, 167, 69, 0.2);
+  color: #87C03D;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.dev-chip-label {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 11px;
+}
+
+.dev-chip-name {
+  font-weight: 700;
+  color: #87C03D;
+  margin-left: 2px;
+}
+
+.dev-chip-pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #28a745;
+  box-shadow: 0 0 6px #28a745;
+  animation: medicalPulseRing 2s infinite;
+}
+
+/* Modal Overlay: Lower than cursor, higher than standard page content */
+.dev-signature-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 8, 22, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  z-index: 10000000 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0.3s ease;
+}
+
+.dev-signature-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Holographic Rotating Border Beam & 3D Interactive Card */
+.dev-signature-card-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  border-radius: 22px;
+  padding: 2px;
+  background: transparent;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 50px rgba(40, 167, 69, 0.25);
+}
+
+/* Animated Rotating Conic-Gradient Border Beam */
+.dev-signature-card-wrapper::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    #28a745 20%,
+    #00d2ff 40%,
+    #164082 60%,
+    #87C03D 80%,
+    transparent 100%
+  );
+  animation: devBorderRotate 8s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes devBorderRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* The Core Showcase Card */
+.dev-signature-card {
+  position: relative;
+  width: 100%;
+  max-height: 88vh;
+  overflow-y: auto;
+  background: linear-gradient(145deg, rgba(12, 16, 40, 0.98) 0%, rgba(6, 9, 24, 0.99) 100%);
+  border-radius: 20px;
+  padding: 0;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  transform: scale(0.94) translateY(18px);
+  transition: transform 0.32s cubic-bezier(0.2, 0.9, 0.3, 1), box-shadow 0.28s ease;
+  z-index: 2;
+  will-change: transform;
+}
+
+.dev-signature-overlay.active .dev-signature-card {
+  transform: scale(1) translateY(0);
+}
+
+/* Card Internal Ambient Spotlight */
+.dev-signature-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    480px circle at var(--dev-spotlight-x, -300px) var(--dev-spotlight-y, -300px),
+    rgba(0, 210, 255, 0.08),
+    transparent 70%
+  );
+  opacity: 1;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Modal Terminal Bar */
+.dev-card-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 22px;
+  background: rgba(0, 0, 0, 0.45);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.dev-card-dots {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.dev-card-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dev-card-dot.red { background: #ff5f56; box-shadow: 0 0 6px rgba(255, 95, 86, 0.7); }
+.dev-card-dot.yellow { background: #ffbd2e; box-shadow: 0 0 6px rgba(255, 189, 46, 0.7); }
+.dev-card-dot.green { background: #27c93f; box-shadow: 0 0 6px rgba(39, 201, 63, 0.7); }
+
+.dev-card-terminal-title {
+  font-size: 11.5px;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.5px;
+}
+
+.dev-card-close-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+
+.dev-card-close-btn:hover {
+  background: rgba(255, 95, 86, 0.4);
+  border-color: #ff5f56;
+  color: #ffffff;
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 0 12px rgba(255, 95, 86, 0.6);
+}
+
+/* Modal Body Content */
+.dev-card-body {
+  padding: 26px 30px;
+}
+
+/* Profile Header Section */
+.dev-profile-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dev-avatar-wrapper {
+  position: relative;
+  width: 104px;
+  height: 104px;
+  flex-shrink: 0;
+}
+
+.dev-avatar-img {
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #28a745;
+  box-shadow: 0 0 25px rgba(40, 167, 69, 0.6);
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.dev-avatar-wrapper:hover .dev-avatar-img {
+  transform: scale(1.04);
+}
+
+.dev-avatar-glow {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(0, 210, 255, 0.7);
+  animation: devGlowRotate 14s linear infinite;
+  pointer-events: none;
+}
+
+.dev-avatar-glow-outer {
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 1px dotted rgba(40, 167, 69, 0.5);
+  animation: devGlowRotateReverse 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes devGlowRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes devGlowRotateReverse {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.dev-profile-info {
+  flex: 1;
+}
+
+.dev-availability-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(40, 167, 69, 0.16);
+  border: 1px solid rgba(40, 167, 69, 0.45);
+  padding: 3px 11px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #87C03D;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 7px;
+}
+
+.dev-author-name {
+  font-size: 26px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+  letter-spacing: 0.4px;
+}
+
+.dev-author-role {
+  font-size: 14px;
+  font-weight: 600;
+  color: #00d2ff;
+  margin: 0 0 7px 0;
+  letter-spacing: 0.2px;
+}
+
+.dev-author-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.75);
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Interactive Tech Stack Pills */
+.dev-tech-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.dev-tech-pill {
+  font-size: 10.5px;
+  font-weight: 600;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #87C03D;
+  padding: 2px 8px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.dev-tech-pill:hover {
+  background: rgba(40, 167, 69, 0.18);
+  border-color: #28a745;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* Engineering Metrics Highlight Strip */
+.dev-metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 18px 0 6px 0;
+}
+
+.dev-metric-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+.dev-metric-val {
+  font-size: 14px;
+  font-weight: 800;
+  color: #00d2ff;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.dev-metric-lbl {
+  font-size: 9.5px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Services & Capabilities Matrix */
+.dev-services-section {
+  padding: 16px 0 20px 0;
+}
+
+.dev-section-heading {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #87C03D;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dev-services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.dev-service-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 14px 16px;
+  transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.dev-service-card:hover {
+  background: rgba(40, 167, 69, 0.09);
+  border-color: rgba(40, 167, 69, 0.5);
+  transform: translateY(-2.5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.dev-service-icon {
+  font-size: 20px;
+  margin-bottom: 6px;
+  display: inline-block;
+}
+
+.dev-service-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.dev-service-desc {
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0;
+}
+
+/* Action Hub & CTAs */
+.dev-actions-hub {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  flex-wrap: wrap;
+}
+
+.dev-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 20px;
+  border-radius: 10px;
+  font-size: 12.5px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.22s ease;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.dev-cta-btn.whatsapp {
+  background: #25D366;
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+}
+
+.dev-cta-btn.whatsapp:hover {
+  background: #20b858;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.55);
+  color: #ffffff;
+}
+
+.dev-cta-btn.phone {
+  background: #164082;
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(22, 64, 130, 0.4);
+}
+
+.dev-cta-btn.phone:hover {
+  background: #113266;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(22, 64, 130, 0.55);
+  color: #ffffff;
+}
+
+.dev-cta-btn.copy {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.dev-cta-btn.copy:hover {
+  background: rgba(255, 255, 255, 0.16);
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+/* Footer Note inside modal */
+.dev-modal-footer-note {
+  font-size: 10.5px;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  margin-top: 14px;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Responsive adjustments */
+@media (max-width: 680px) {
+  .dev-signature-card-wrapper {
+    max-width: 96%;
+  }
+  .dev-profile-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 14px;
+  }
+  .dev-author-meta {
+    justify-content: center;
+  }
+  .dev-tech-pills {
+    justify-content: center;
+  }
+  .dev-services-grid {
+    grid-template-columns: 1fr;
+  }
+  .dev-metrics-strip {
+    grid-template-columns: 1fr;
+  }
+  .dev-actions-hub {
+    flex-direction: column;
+    width: 100%;
+  }
+  .dev-cta-btn {
+    width: 100%;
+  }
+  .dev-signature-chip {
+    left: 15px;
+    bottom: 80px;
+    padding: 6px 10px;
+  }
+  .dev-chip-label {
+    display: none;
+  }
+}
+
+/* Fallback & Accessibility for touch or prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce), (hover: none) {
+  .creative-cursor-dot,
+  .creative-cursor-ring,
+  .creative-cursor-label,
+  .creative-sonar-pulse,
+  #creative-particle-canvas {
+    display: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .medisail-live-dock {
+    bottom: 15px;
+    right: 15px;
+    left: 15px;
+    justify-content: space-between;
+    border-radius: 16px;
+    padding: 8px 14px;
+  }
+}
+
